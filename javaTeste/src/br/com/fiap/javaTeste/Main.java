@@ -15,13 +15,13 @@ public class Main {
 		
 		//Adicionar um novo usuário
 		Usuario usuario = new Usuario();
-		usuario.setNome("NOME");
-		usuario.setSenha("SENHA");
-		usuario.setDt_nascimento(new Date(usuario.getDt_nascimento().getTime()));
-		usuario.setEmail("EMAIL");
+		usuario.setNome("CANETA AZUL");
+		usuario.setSenha("2505");
+		//usuario.setDt_nascimento(new Date(usuario.getDt_nascimento().getTime()));
+		usuario.setEmail("joableonardo157@manoelgomes.com");
 	
 		UsuarioDao uDao = new UsuarioDao(Conexao.abrirConexao());
-		uDao.gravar(usuario);  
+		//uDao.gravar(usuario);
 		
 		
 		//Atualizar usuario
@@ -30,16 +30,16 @@ public class Main {
 		u1.setSenha("ATUALIZAR SENHA");
 		u1.setEmail("ATUALIZAR EMAIL");
 		u1.setDt_nascimento(new Date());
-		u1.setId_usuario(42); //ID que está sendo mudado (PK)
-		uDao.update(u1);
+		u1.setId_usuario(4); //ID que está sendo mudado (PK)
+		//uDao.update(u1);
 		
 		
 		//Deletar o usuario pelo numero de ID
-		uDao.deleteByID(22);//ID que desja excluir
+		//uDao.deleteByID(22);//ID que desja excluir
 		
 		
 		//Buscar usuários por ID
-		uDao.buscarUsuarioPorId(4);
+		//uDao.buscarUsuarioPorId(4);
 		
 		
 		//Listar todos os usuários cadastrados

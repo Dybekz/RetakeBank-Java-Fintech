@@ -32,7 +32,7 @@ public class MainTransacao {
 				
 				
 		//Deletar conta pelo numero de ID
-		tDao.deleteByID(0);//ID que desja excluir
+		//tDao.deleteByID(0);//ID que desja excluir
 				
 				
 		//Buscar contas por ID

@@ -26,7 +26,7 @@ public class MainTelefone {
 				
 				
 		//Deletar telefone pelo numero de ID
-		telefoneDao.deleteByID(0);//ID que desja excluir
+		//telefoneDao.deleteByID(0);//ID que desja excluir
 				
 				
 		//Buscar telefones por ID

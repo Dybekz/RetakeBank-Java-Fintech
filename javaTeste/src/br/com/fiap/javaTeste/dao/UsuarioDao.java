@@ -20,8 +20,8 @@ public class UsuarioDao {
 
 	public void gravar(Usuario usuario) {
 		
-		String sql = "INSERT INTO T_USUARIO (id_usuario, nome, senha, email, dt_nascimento) "
-				+ "VALUES (sq_usuario.nextval, ?, ?, ?, ?)";
+		String sql = "INSERT INTO T_USUARIO (id_usuario, nome, senha, email) "
+				+ "VALUES (sq_usuario.nextval, ?, ?, ?,?)";
 		
 		try {
 			
@@ -32,7 +32,7 @@ public class UsuarioDao {
 			ps.setString(1, usuario.getNome());
 			ps.setString(2, usuario.getSenha());
 			ps.setString(3, usuario.getEmail());
-			ps.setDate(4, new Date(usuario.getDt_nascimento().getTime()));
+			//ps.setDate(4, new Date(usuario.getDt_nascimento().getTime()));
 			
 			
 			//Execução do comando
@@ -96,7 +96,7 @@ public class UsuarioDao {
 			ps.setString(1, usuario.getNome());
 			ps.setString(2, usuario.getSenha());
 			ps.setString(3, usuario.getEmail());
-			ps.setDate(4, new Date(usuario.getDt_nascimento().getTime()));
+			//ps.setDate(4, new Date(usuario.getDt_nascimento().getTime()));
 			
 			
 			//Qual o ID que será atualizado

@@ -34,7 +34,7 @@ public class MainLembrete {
 		
 		
 		//Deletar lembrete pelo numero de ID
-		lDao.deleteByID(0);//ID que desja excluir
+		//lDao.deleteByID(0);//ID que desja excluir
 		
 		
 		//Buscar lembretes por ID

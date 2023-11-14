@@ -27,7 +27,7 @@ public class MainConta {
 		
 		
 		//Deletar conta pelo numero de ID
-		cDao.deleteByID(0);//ID que desja excluir
+		//cDao.deleteByID(0);//ID que desja excluir
 		
 		
 		//Buscar contas por ID

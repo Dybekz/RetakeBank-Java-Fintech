@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="RetakeWeb">
+    <output-path>$PROJECT_DIR$/out/artifacts/RetakeWeb</output-path>
+    <root id="archive" name="RetakeWeb.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="RetakeBank-Java-Fintech" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/javaTeste/src/lib/ojdbc11.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

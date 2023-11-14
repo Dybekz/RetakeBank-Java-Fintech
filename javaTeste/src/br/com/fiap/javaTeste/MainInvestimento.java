@@ -28,7 +28,7 @@ public class MainInvestimento {
 				
 				
 		//Deletar conta pelo numero de ID
-		iDao.deleteByID(0);//ID que desja excluir
+		//iDao.deleteByID(0);//ID que desja excluir
 				
 				
 		//Buscar contas por ID

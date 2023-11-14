@@ -27,7 +27,7 @@ public class MainRecebimentos {
 				
 				
 		//Deletar recebimentos pelo numero de ID
-		rDao.deleteByID(0);//ID que desja excluir
+		//rDao.deleteByID(0);//ID que desja excluir
 				
 				
 		//Buscar recebimentos por ID
