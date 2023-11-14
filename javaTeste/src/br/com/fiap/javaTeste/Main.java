@@ -17,11 +17,11 @@ public class Main {
 		Usuario usuario = new Usuario();
 		usuario.setNome("NOME");
 		usuario.setSenha("SENHA");
-		usuario.setDt_nascimento(new Date(usuario.getDt_nascimento().getTime()));
+		//usuario.setDt_nascimento(new Date(usuario.getDt_nascimento().getTime()));
 		usuario.setEmail("EMAIL");
 	
 		UsuarioDao uDao = new UsuarioDao(Conexao.abrirConexao());
-		uDao.gravar(usuario);  
+		//uDao.gravar(usuario);  
 		
 		
 		//Atualizar usuario
@@ -30,16 +30,16 @@ public class Main {
 		u1.setSenha("ATUALIZAR SENHA");
 		u1.setEmail("ATUALIZAR EMAIL");
 		u1.setDt_nascimento(new Date());
-		u1.setId_usuario(42); //ID que está sendo mudado (PK)
+		u1.setId_usuario(0); //ID que está sendo mudado (PK)
 		uDao.update(u1);
 		
 		
 		//Deletar o usuario pelo numero de ID
-		uDao.deleteByID(22);//ID que desja excluir
+		uDao.deleteByID(0);//ID que desja excluir
 		
 		
 		//Buscar usuários por ID
-		uDao.buscarUsuarioPorId(4);
+		uDao.buscarUsuarioPorId(0);
 		
 		
 		//Listar todos os usuários cadastrados

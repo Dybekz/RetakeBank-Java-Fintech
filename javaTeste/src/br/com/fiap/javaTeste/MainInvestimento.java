@@ -27,14 +27,14 @@ public class MainInvestimento {
 		iDao.update(i1);
 				
 				
-		//Deletar conta pelo numero de ID
+		//Deletar investimento pelo numero de ID
 		iDao.deleteByID(0);//ID que desja excluir
 				
 				
-		//Buscar contas por ID
+		//Buscar investimentos por ID
 		iDao.buscarInvestimentoPorId(0);
 				
-		//Listar todas as contas cadastradas
+		//Listar todos os investimentos cadastradas
 		List<Investimento> investimentos = iDao.listarTodos();
 						
 			for (Investimento i : investimentos) {
