@@ -161,7 +161,7 @@ public class UsuarioDao {
 		
 	}
 	
-	public static void buscarUsuario(int id_usuario) {
+	public void buscarUsuario(int id_usuario) {
 		
 		String sql = "SELECT * FROM T_USUARIO WHERE id_usuario  = ?";
 		
