@@ -1,4 +1,4 @@
-//import br.com.fiap.javaTeste.dao.Conexao;
+import br.com.fiap.javaTeste.dao.Conexao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,7 +16,27 @@ import java.util.Base64;
 
 @WebServlet("/TelaLogin")
 public class TelaLogin extends HttpServlet {
+    private Connection myDatabaseConnection;
+
+    public void init() throws ServletException {
+        super.init();
+        try {
+            this.myDatabaseConnection = Conexao.abrirConexao();
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
+    }
+
+    public void destroy() {
+        try {
+            myDatabaseConnection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         String primeiroNome = request.getParameter("PrimeiroNome");
         String sobrenome = request.getParameter("Sobrenome");
         String email = request.getParameter("Email");
@@ -26,7 +46,7 @@ public class TelaLogin extends HttpServlet {
         String hashedPassword = hashPassword(senha);
 
         // Conexão com o banco de dados
-       // Connection conn = getMyDatabaseConnection();
+        //Connection conn = getMyDatabaseConnection();
         String sql = "INSERT INTO T_USUARIO (primeiroNome, sobrenome, email, senha) VALUES (?, ?, ?, ?)";
 
         // Preparar a declaração SQL
