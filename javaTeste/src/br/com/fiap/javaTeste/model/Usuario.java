@@ -6,6 +6,7 @@ public class Usuario {
 
 	private int id_usuario;
 	private String nome;
+	private String sobrenome;
 	private String senha;
 	private String email;
 	private Date dt_nascimento;
@@ -24,6 +25,13 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 
 	public String getSenha() {

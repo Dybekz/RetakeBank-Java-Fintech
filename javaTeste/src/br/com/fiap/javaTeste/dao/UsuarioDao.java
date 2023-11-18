@@ -1,11 +1,13 @@
 package br.com.fiap.javaTeste.dao;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import br.com.fiap.javaTeste.model.Usuario;
@@ -20,7 +22,7 @@ public class UsuarioDao {
 
 	public void gravar(Usuario usuario) {
 
-		String sql = "INSERT INTO T_USUARIO (id_usuario, nome, senha, email) "
+		String sql = "INSERT INTO T_USUARIO (id_usuario, nome, senha, email, sobrenome) "
 				+ "VALUES (sq_usuario.nextval, ?, ?, ?,?)";
 
 		try {
@@ -32,7 +34,7 @@ public class UsuarioDao {
 			ps.setString(1, usuario.getNome());
 			ps.setString(2, usuario.getSenha());
 			ps.setString(3, usuario.getEmail());
-			//ps.setDate(4, new Date(usuario.getDt_nascimento().getTime()));
+			ps.setString(4, usuario.getSobrenome());
 
 
 			//Execução do comando
@@ -51,7 +53,7 @@ public class UsuarioDao {
 
 	}
 
-	public void deleteByID (int id) {
+	public void deleteByID(int id) {
 
 		String sql = "DELETE FROM t_usuario WHERE id_usuario = ? ";
 
@@ -79,13 +81,12 @@ public class UsuarioDao {
 		}
 
 
-
 	}
 
 	public void update(Usuario usuario) {
 
-		String sql = "UPDATE t_usuario SET nome = ?, senha = ?, email = ?, dt_nascimento = ? "+
-		 "WHERE id = ?";
+		String sql = "UPDATE t_usuario SET nome = ?, senha = ?, email = ?, dt_nascimento = ? " +
+				"WHERE id = ?";
 
 		try {
 
@@ -118,7 +119,7 @@ public class UsuarioDao {
 
 	}
 
-	public List<Usuario> listarTodos () {
+	public List<Usuario> listarTodos() {
 
 		//Select ALL ordenado em modo crescente
 		String sql = "SELECT * FROM T_USUARIO ORDER BY id_usuario";
@@ -149,7 +150,6 @@ public class UsuarioDao {
 
 			ps.close();
 			conexao.close();
-
 
 
 		} catch (SQLException e) {
@@ -188,18 +188,56 @@ public class UsuarioDao {
 		return u;
 	}
 
-	public boolean existeUsuario(String email, String senha) throws SQLException {
-		boolean existe = false;
-		String sql = "SELECT * FROM T_USUARIO WHERE email = ? AND senha = ?";
+	public Usuario existeUsuario(String email, String senha) throws SQLException {
+		Usuario usuario = null;
+		String sql = "SELECT * FROM T_USUARIO WHERE email = ?";
 		PreparedStatement stmt = conexao.prepareStatement(sql);
 		stmt.setString(1, email);
-		stmt.setString(2, senha);
 		ResultSet rs = stmt.executeQuery();
 		if (rs.next()) {
-			existe = true;
+			// Recupera o "sal" e o hash da senha do banco de dados
+			String[] parts = rs.getString("senha").split(":");
+			String salt = parts[0];
+			String storedHash = parts[1];
+
+			// Calcula o hash da senha fornecida
+			String hashedPassword = hashPassword(senha, salt);
+
+			// Compara o hash da senha fornecida com o hash armazenado no banco de dados
+			if (hashedPassword.equals(storedHash)) {
+				usuario = new Usuario();
+				usuario.setNome(rs.getString("nome"));
+				usuario.setSobrenome(rs.getString("sobrenome"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setSenha(rs.getString("senha"));
+			}
 		}
 		rs.close();
 		stmt.close();
-		return existe;
+		return usuario;
+
 	}
+
+	public String hashPassword(String password, String salt) {
+		try {
+			// Converte o "sal" de volta para bytes
+			byte[] saltBytes = Base64.getDecoder().decode(salt);
+
+			// Calcula o hash da senha
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			md.update(saltBytes);
+			byte[] hashedPassword = md.digest(password.getBytes());
+
+			// Converte o hash da senha para Base64 para comparação
+			String passwordBase64 = Base64.getEncoder().encodeToString(hashedPassword);
+
+			// Retorna o hash da senha
+			return passwordBase64;
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 }
+
+
