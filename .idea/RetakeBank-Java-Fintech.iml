@@ -5,7 +5,11 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/javaTeste/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/javaTeste/webapp" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/node_modules/js" />
     </content>
+    <content url="file://$MODULE_DIR$/node_modules" />
+    <content url="file://$MODULE_DIR$/node_modules/js" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
@@ -18,6 +22,25 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" exported="" name="jquery" level="application" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/NiceAdmin/assets/vendor/bootstrap" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/node_modules" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/node_modules" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
