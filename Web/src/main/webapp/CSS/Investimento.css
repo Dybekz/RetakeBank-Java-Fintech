@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #d7f7ff;
+    background-color: rgb(81, 140, 228);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -25,12 +25,12 @@ body {
     padding: 10px;
     margin-bottom: 8px;
     text-align: center;
-    border: 1px dashed #21cdd3;
+    border: 1px dashed #2476d4;
 }
 
 .wrapper h4 {
     padding-bottom: 5px;
-    color: #21cdd3;
+    color: #2476d4;
 }
 
 .input_group {
@@ -65,10 +65,10 @@ body {
 }
 
 .input_box .name:focus, .dob:focus {
-    -webkit-box-shadow: 0 0 2px 1px #21cdd3;
-    -moz-box-shadow: 0 0 2px 1px #21cdd3;
-    box-shadow: 0 0 2px 1px #21cdd3;
-    border: 1px solid #21cdd3;
+    -webkit-box-shadow: 0 0 2px 1px #2476d4;
+    -moz-box-shadow: 0 0 2px 1px #2476d4;
+    box-shadow: 0 0 2px 1px #2476d4;
+    border: 1px solid #2476d4;
 }
 
 .input_box .icon {
@@ -91,9 +91,9 @@ body {
 }
 
 .name:focus+.icon {
-    background-color: #21cdd3;
+    background-color: #2476d4;
     color: #fff;
-    border-right: 1px solid #21cdd3;
+    border-right: 1px solid #2476d4;
     border: none;
     transition: 1s;
 }
@@ -135,14 +135,14 @@ body {
 }
 
 .radio:checked+label {
-    background-color: #21cdd3;
+    background-color: #2476d4;
     color: #fff;
     transition: 0.5s;
 }
 
 .input_box button {
     width: 100%;
-    background-color: #21cdd3;
+    background-color: #2174d3;
     border: none;
     color: #fff;
     padding: 15px;
@@ -154,5 +154,5 @@ body {
 
 .input_box button:hover {
     cursor: pointer;
-    background-color: #05b1a3;
+    background-color: rgb(19, 68, 158);
 }
