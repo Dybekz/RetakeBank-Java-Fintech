@@ -12,12 +12,15 @@ import br.com.fiap.javaTeste.model.Transacao;
 import br.com.fiap.javaTeste.dao.RecebimentosDao;
 import br.com.fiap.javaTeste.dao.TransacaoDao;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.servlet.http.HttpServletRequest;
 
+@WebServlet("/SaldoServlet")
 public class SaldoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

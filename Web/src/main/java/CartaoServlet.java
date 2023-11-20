@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 @WebServlet("/CartaoServlet")
 public class CartaoServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Connection conexao = null;
         try {
             // Dados do formulário
@@ -42,6 +42,9 @@ public class CartaoServlet extends HttpServlet {
 
             // Enviar feedback ao usuário
             response.getWriter().println("Cartão cadastrado com sucesso!");
+
+            // Redirecionar para index.jsp
+            response.sendRedirect("index.jsp");
         } catch (Exception e) {
             // Tratamento de erro apropriado
             response.getWriter().println("Ocorreu um erro: " + e.getMessage());
