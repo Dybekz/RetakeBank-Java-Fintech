@@ -32,3 +32,4 @@ public class InvestimentoServlet extends HttpServlet {
         out.println(investimento);
     }
 }
+

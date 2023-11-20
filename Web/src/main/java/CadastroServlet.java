@@ -62,7 +62,7 @@ public class CadastroServlet extends HttpServlet {
             conexao.gravar(usuario);
 
             // Redirecionar o usuário para a página de destino após o login bem-sucedido.
-            response.sendRedirect("success.jsp");
+            response.sendRedirect("Cartao.jsp");
         } else {
             // Tratar o caso em que a senha é nula
             LOGGER.log(Level.SEVERE, "A senha não foi fornecida");
