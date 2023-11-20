@@ -13,7 +13,7 @@
 
 <body>
 <div class="wrapper">
-    <h2>Payment Form</h2>
+    <h2>Registro de Cartão de Crédito</h2>
     <form action="${pageContext.request.contextPath}/CartaoServlet" method="post">
         <div class="input_group">
             <div class="input_box">
@@ -23,13 +23,13 @@
         </div>
         <div class="input_group">
             <div class="input_box">
-                <input type="tel" name="nr_cartao" class="name" placeholder="Número do Cartão 1111-2222-3333-4444" required>
+                <input type="tel" name="nr_cartao" class="name" placeholder="Número do Cartão Ex:1111-2222-3333-4444" required>
                 <i class="fa fa-credit-card icon"></i>
             </div>
         </div>
         <div class="input_group">
             <div class="input_box">
-                <input type="tel" name="cvv_cartao" class="name" placeholder="CVC do Cartão 632" required>
+                <input type="tel" name="cvv_cartao" class="name" placeholder="CVV do Cartão Ex:632" required>
                 <i class="fa fa-user icon"></i>
             </div>
         </div>
