@@ -76,43 +76,43 @@ private Connection conexao;
 			e.printStackTrace();
 		}
 		
-	}	
-	
+	}
+
 	public void update(Cartao cartao) {
-		
-		String sql = "UPDATE t_cartao SET nm_cartao = ?, nr_cartao = ? vld_cartao = ? cvv_cartao = ? " +
+
+		String sql = "UPDATE t_cartao SET nm_cartao = ?, nr_cartao = ?, vld_cartao = ?, cvv_cartao = ? " +
 		 "WHERE id = ?";
-		
+
 		try {
-			
+
 			//Criar conexão com o banco
 			PreparedStatement ps = conexao.prepareStatement(sql);
-			
+
 			//Valores à serem atualizados
 			ps.setString(1, cartao.getNm_cartao());
 			ps.setString(2, cartao.getNr_cartao());
 			ps.setString(3, cartao.getVld_cartao());
 			ps.setString(4, cartao.getCvv_cartao());
-			
-			
+
+
 			//Qual o ID que será atualizado
 			ps.setInt(5, cartao.getId_cartao());
-			
+
 			//Execução do comando
 			ps.execute();
-			
+
 			ps.close();
 			conexao.close();
-			
+
 			System.out.println("Cartão atualizado com sucesso!");
-			
-			
+
+
 		} catch (SQLException e) {
 			System.out.println("Ocorreu algum erro no sistema");
 			e.printStackTrace();
 		}
-		
-	}	
+
+	}
 
 	public List<Cartao> listarTodos () {
 		
